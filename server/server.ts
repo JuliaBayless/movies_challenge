@@ -13,17 +13,18 @@ app.get('/', (req, res) => {
   res.send('test!');
 });
 
-app.get('/movies/:title', (req, res) => {
+app.get('/movies/:title', async (req, res) => {
   const apiKey = process.env.API_KEY;
   const { title } = req.params;
+  const response = await axios.get(`http://www.omdbapi.com/?t=${title}&apikey=${apiKey}`)
+  res.json(response.data);
+});
 
-  axios.get(`http://www.omdbapi.com/?t=${title}&apikey=${apiKey}`)
-    .then((response) => {
-      res.send(response.data);
-    })
-    .catch((error) => {
-      res.status(500).send(error);
-    });
+app.get('/movies', async (req, res) => {
+  const apiKey = process.env.API_KEY;
+  const { title } = req.query;
+  const response = await axios.get(`http://www.omdbapi.com/?type=movie&s=${title}&apikey=${apiKey}`);
+  res.json(response.data.Search);
 });
 
 const port = process.env.PORT || 3000;

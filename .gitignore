@@ -6,4 +6,3 @@ dist/
 *.swp
 *.tmp
 *.pid
-.eslintrc.js
