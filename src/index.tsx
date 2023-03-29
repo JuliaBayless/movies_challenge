@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -11,22 +10,22 @@ const root = createRoot(container);
 const queryClient = new QueryClient();
 
 root.render(
-    <React.StrictMode>
-        <BrowserRouter>
-        <QueryClientProvider client={queryClient}>
-            <App />
+  <React.StrictMode>
+    <BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <App />
         <ToastContainer
-            position="bottom-center"
-            autoClose={3000}
-            hideProgressBar
-            newestOnTop={false}
-            closeOnClick
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="light"
-          />
-          </QueryClientProvider>
-        </BrowserRouter>
-    </React.StrictMode>
-)
+          position="bottom-center"
+          autoClose={3000}
+          hideProgressBar
+          newestOnTop={false}
+          closeOnClick
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </QueryClientProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
+);

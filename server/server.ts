@@ -1,4 +1,4 @@
-import express, { Router } from 'express';
+import express from 'express';
 import bodyParser from 'body-parser';
 import axios from 'axios';
 import dotenv from 'dotenv';
@@ -14,21 +14,19 @@ app.get('/', (req, res) => {
 });
 
 app.get('/movies/:title', (req, res) => {
-    const apiKey = process.env.API_KEY;
-    const title = req.params.title;
+  const apiKey = process.env.API_KEY;
+  const { title } = req.params;
 
-    axios.get(`http://www.omdbapi.com/?t=${title}&apikey=${apiKey}`)
-      .then(response => {
-        res.send(response.data);
-      })
-      .catch(error => {
-        res.status(500).send(error);
-      });
-  });
+  axios.get(`http://www.omdbapi.com/?t=${title}&apikey=${apiKey}`)
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((error) => {
+      res.status(500).send(error);
+    });
+});
 
-  
-
-  const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}.`);
