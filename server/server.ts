@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Router } from 'express';
 import bodyParser from 'body-parser';
 import axios from 'axios';
 import dotenv from 'dotenv';
@@ -25,6 +25,8 @@ app.get('/movies/:title', (req, res) => {
         res.status(500).send(error);
       });
   });
+
+  
 
   const port = process.env.PORT || 3000;
 
