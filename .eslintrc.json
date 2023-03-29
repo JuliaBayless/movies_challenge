@@ -6,9 +6,17 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "standard-with-typescript"
+        "standard-with-typescript",
+        "airbnb",
+        "airbnb/hooks"
     ],
     "overrides": [
+        {
+            "files": ["**/*.ts", "**/*.tsx"],
+            "rules": {
+                "spellcheck/spell-checker": "off"
+            }
+        }
     ],
     "parserOptions": {
         "ecmaVersion": "latest"
@@ -17,5 +25,6 @@
         "react"
     ],
     "rules": {
+        "spellcheck/spell-checker": "off"
     }
 }
