@@ -1,0 +1,51 @@
+.card {
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    overflow: hidden;
+    width: 300px;
+    margin: 16px;
+}
+
+.card-header {
+    background-color: #f1f1f1;
+    color: white;
+    padding: 16px;
+}
+  
+.card-body {
+    padding: 16px;
+}
+  
+.card-footer {
+    background-color: #f1f1f1;
+    padding: 8px;
+}
+
+  /* responsive design */
+@media only screen and (max-width: 768px) {
+    .card {
+      max-width: 100%;
+      margin: 16px 0;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .card-header {
+      padding: 12px;
+      font-size: 1.2rem;
+    }
+
+    .card-body {
+        padding: 12px;
+        font-size: 1rem;
+    }
+    
+    .card-footer {
+        padding: 6px;
+    }
+    
+    .card-footer button {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
