@@ -1,11 +1,20 @@
 import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import '@fontsource/poppins';
 import './App.css';
-import BaseCard from './reusable-components/BaseCard';
+import BaseCard from './components/BaseCard';
+import { Routes, Route } from 'react-router';
 
 export default function App() {
   return (
-    <BaseCard />
+    <div className="App">
+      <Routes>
+      <Route
+        path="/"
+      />
+      <Route
+        path="/movie/:id"
+      />
+    </Routes>
+    </div>
   );
 }
