@@ -3,9 +3,9 @@ import { useState } from "react";
 import { SearchParams } from './types'
 
 export default function useListMovies() {
-    const [ search, setSearch ] = useState<string | undefined>(undefined);
+    const [ search, setSearch ] = useState<string>('');
 
-    const onSearchComplete = ({type, year, page}: SearchParams ): string | void => {
+    const onSearchComplete = ({type, year, page}: SearchParams ): void => {
         let url: string = '';
         
         if (year) {
