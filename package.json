@@ -4,6 +4,7 @@
   "type": "module",
   "dependencies": {
     "@fontsource/poppins": "^4.5.10",
+    "@mui/icons-material": "^5.11.11",
     "@reduxjs/toolkit": "^1.9.3",
     "@tanstack/react-query": "^4.28.0",
     "@tanstack/react-table": "^8.8.4",

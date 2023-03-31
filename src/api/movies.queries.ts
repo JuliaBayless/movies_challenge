@@ -7,7 +7,7 @@ const searchMovies = (query: string) => ({
     queryKey: ['GET /movies'],
     queryFn: async () => {
         const response = await axios.get<{ Search: Movie[] }>(`${process.env.REACT_APP_SERVER_URL}/movies&${query}`)
-        return response.data;
+        return response
     }
 });
 

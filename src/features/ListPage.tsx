@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { searchMovies } from "../api/movies.queries";
-import useListMovies from "./list-view/useListMovies";
+import useListMovies from "./list-view/useMovieList";
+import SearchBar from "../components/Searchbar";
+import React from "react";
 
 
 export default function ListPage() {
@@ -9,10 +11,11 @@ export default function ListPage() {
         onSearchComplete
     } = useListMovies();
 
-    const {
-        isLoading,
-        isError,
-    } = useQuery(searchMovies(search));
+    const { isLoading, error, data } = useQuery(['GET /movies', onSearchComplete], searchMovies(onSearchComplete));
 
-    
+    return(
+        <div>
+            <SearchBar setSearch={onSearchComplete} />
+        </div>
+    )
 }
