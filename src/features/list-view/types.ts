@@ -1,12 +1,10 @@
 import { Movie } from "../../../server/types";
 
-export type PagingOptions = {
-    page: number;
-}
 
-interface SearchParams {
-    query: string;
+export interface SearchParams {
+    title: string;
     year?: string | number;
     type?: string | string[];
+    page?: number;
 }
 
