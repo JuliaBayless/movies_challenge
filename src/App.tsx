@@ -2,6 +2,7 @@ import React from 'react';
 import '@fontsource/poppins';
 import './App.css';
 import { Routes, Route } from 'react-router';
+import ListPage from './features/ListPage';
 
 export default function App() {
   return (
@@ -9,6 +10,9 @@ export default function App() {
       <Routes>
         <Route
           path="/"
+          element={(
+            <ListPage />
+          )}
         />
         <Route
           path="/movie/:id"

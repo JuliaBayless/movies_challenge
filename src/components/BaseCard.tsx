@@ -1,15 +1,14 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import './BaseCard.css';
 
 interface CardProps {
   title?: string;
-  footer?: ReactNode;
   child?: JSX.Element;
   onClick?: () => void;
 }
 
 export default function BaseCard({
-  title, footer, child, onClick,
+  title, child, onClick,
 }: CardProps) {
   return (
     <button type="button" className="card" onClick={onClick}>
@@ -33,7 +32,6 @@ export default function BaseCard({
 
 BaseCard.defaultProps = {
   title: undefined,
-  footer: undefined,
   child: undefined,
   onClick: undefined,
 };

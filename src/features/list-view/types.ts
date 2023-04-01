@@ -1,7 +1,6 @@
 export interface SearchParams {
-    title?: string;
-    year?: string | number;
-    type?: string | string[];
-    page?: number;
+  search?: string;
+  year?: string | number;
+  type?: string | string[];
+  page?: number;
 }
-

@@ -13,20 +13,19 @@ app.get('/', (req, res) => {
   res.send('test!');
 });
 
-//grabs single movie
+// grabs single movie
 app.get('/movie/:title', async (req, res) => {
   const apiKey = process.env.API_KEY;
   const { title } = req.params;
-  const response = await axios.get(`http://www.omdbapi.com/?t=${title}&apikey=${apiKey}`)
+  const response = await axios.get(`http://www.omdbapi.com/?t=${title}&apikey=${apiKey}`);
   res.json(response.data);
 });
 
-//*search* grabs list using query
+// search grabs list using query
 app.get('/movies', async (req, res) => {
   const apiKey = process.env.API_KEY;
   const { query } = req.query;
   const response = await axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&${query}`);
-  console.log(response.data)
   res.json(response.data.Search);
 });
 
