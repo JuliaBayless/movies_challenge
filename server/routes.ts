@@ -2,12 +2,14 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import axios from 'axios';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 dotenv.config();
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('test!');
@@ -24,8 +26,10 @@ app.get('/movie/:title', async (req, res) => {
 // search grabs list using query
 app.get('/movies', async (req, res) => {
   const apiKey = process.env.API_KEY;
-  const { query } = req.query;
-  const response = await axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&${query}`);
+  const { s } = req.query;
+  console.log('PING', s);
+  const response = await axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&s=${s}`);
+  console.log(response.data);
   res.json(response.data.Search);
 });
 

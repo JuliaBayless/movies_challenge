@@ -1,47 +1,22 @@
 import { useState } from 'react';
-import { SearchParams } from './types'
-
-const buildSearch = (search: string = ''): string => {
-  return search ? `&s=${search}` : '';
-};
-
-const buildFilter = ({ type, year, page }: SearchParams): string => {
-  let url: string = '';
-
-  if (year) {
-    url += `&y=${year}`;
-  }
-
-  if (type) {
-    if (Array.isArray(type)) {
-      url += `&type=${type.join(',')}`;
-    } else {
-      url += `&type=${type}`;
-    }
-  }
-
-  if (page) {
-    url += `&page=${page}`;
-  }
-
-  return url;
-};
+// import { SearchParams } from './types';
 
 export default function useListMovies() {
-  const [searchParams, setSearchParams] = useState<SearchParams>({});
+  // const [searchParams, setSearchParams] = useState<SearchParams>({});
+  // const [query, setQuery] = useState<string>('');
+  const [search, setSearch] = useState<string>('');
 
-  const onSearchComplete = (): string => {
-    const { title = '' } = searchParams;
-    const query = buildSearch(title) + buildFilter(searchParams);
-    return query;
-  };
+  // const onSearchComplete = (newSearch: string):void => {
+  //   const buildQuery = buildSearch(search);
+  //   return buildQuery;
+  // };
 
   return {
-    search: searchParams.title,
-    onSearchComplete,
-    setSearch: (search: string) =>
-      setSearchParams((params) => ({ ...params, search })),
-    setFilter: (filter: SearchParams) => setSearchParams(filter),
+    search,
+    // onSearchComplete,
+    setSearch,
+    // setSearch: (search: string) =>
+    //   setSearchParams((params) => ({ ...params, search })),
+    // setFilter: (filter: SearchParams) => setSearchParams(filter),
   };
 }
-
