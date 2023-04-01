@@ -12,7 +12,7 @@ export default function ListPage() {
   } = useListMovies();
   const { movies, isLoading, error } = searchMoviesQuery(search, pagingOptions);
 
-  console.log('Data', movies, isLoading, error, pagingOptions);
+  console.log('Data', movies, isLoading, error, pagingOptions, search);
 
   return (
     <div>

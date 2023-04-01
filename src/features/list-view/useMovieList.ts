@@ -10,7 +10,7 @@ export default function useListMovies() {
   const [search, setSearch] = useState<string>('');
 
   const onSearchComplete = (newSearch: string): void => {
-    setSearch(newSearch);
+    setSearch(newSearch.replace(/\s+/g, '_'));
     setPagingOptions({ page: 1, page_size: 10 });
   };
 
