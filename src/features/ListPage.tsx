@@ -12,16 +12,17 @@ export default function ListPage() {
   } = useListMovies();
   const { movies, isLoading, error } = searchMoviesQuery(search);
 
-  console.log('Data', movies, isLoading, error);
+  console.log('Data', movies, isLoading, error, pagingOptions);
 
   return (
     <div>
       <MovieSearch setSearch={onSearchComplete} />
       <PagingMenu
         pagingOptions={pagingOptions}
-        totalItems={movies.totalResults}
-        onPageChange={setPagingOptions}
+        totalItems={movies && movies.totalResults}
+        onPageChange={(next: number) => setPagingOptions({ page: next, page_size: 10 })}
       />
+      {JSON.stringify(movies)}
     </div>
   );
 }

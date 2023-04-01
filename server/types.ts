@@ -16,13 +16,13 @@ export interface RatingItem {
   Value: string
 }
 
-interface SearchResponse {
+export interface SearchResponse {
   Search: Movie[];
-  totalResults: string;
+  totalResults: number;
   Response: string;
 }
 
-interface SearchParams {
+export interface SearchParams {
   query: string;
   year?: string | number;
   type?: string | string[];

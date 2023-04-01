@@ -13,10 +13,6 @@ export default function useListMovies() {
     setSearch(newSearch);
     setPagingOptions({ page: 1, page_size: 10 });
   };
-  // const onSearchComplete = (newSearch: string):void => {
-  //   const buildQuery = buildSearch(search);
-  //   return buildQuery;
-  // };
 
   return {
     search,
