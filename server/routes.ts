@@ -26,9 +26,9 @@ app.get('/movie/:title', async (req, res) => {
 // search grabs list using query
 app.get('/movies', async (req, res) => {
   const apiKey = process.env.API_KEY;
-  const { search } = req.query;
+  const { search, page } = req.query;
   console.log('PING', search);
-  const response = await axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&s=${search}`);
+  const response = await axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&s=${search}&page=${page}`);
   console.log(response.data);
   res.json(response.data);
 });

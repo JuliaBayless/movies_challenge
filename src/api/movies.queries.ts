@@ -1,12 +1,21 @@
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 import { Movie, SearchResponse } from '../../server/types';
+import { PagingOptions } from './types';
 // import { SearchParams } from '../features/list-view/types';
 
 const buildSearch = (search: any): string => {
   console.log('IN BUILD', search);
   if (search) {
     return `search=${search}`;
+  }
+  return '';
+};
+
+const buildPaging = (pagingOptions?: PagingOptions): string => {
+  console.log('IN PAGE', pagingOptions);
+  if (pagingOptions) {
+    return `&page=${pagingOptions.page}`;
   }
   return '';
 };
@@ -41,9 +50,10 @@ interface QueryReturn {
 }
 const searchMoviesQuery = (
   search?: string,
+  pagingOptions?: PagingOptions,
   // filter?: SearchParams,
 ): QueryReturn => {
-  const query = buildSearch(search);
+  const query = buildSearch(search) + buildPaging(pagingOptions);
   console.log(`${process.env.REACT_APP_SERVER_URL}/movies?${query}`);
   const {
     isLoading, isFetching, error, data,
