@@ -1,11 +1,18 @@
 import { useState } from 'react';
+import { PagingOptions } from '../../api/types';
 // import { SearchParams } from './types';
 
 export default function useListMovies() {
-  // const [searchParams, setSearchParams] = useState<SearchParams>({});
-  // const [query, setQuery] = useState<string>('');
+  const [pagingOptions, setPagingOptions] = useState<PagingOptions>({
+    page: 1,
+    page_size: 10,
+  });
   const [search, setSearch] = useState<string>('');
 
+  const onSearchComplete = (newSearch: string): void => {
+    setSearch(newSearch);
+    setPagingOptions({ page: 1, page_size: 10 });
+  };
   // const onSearchComplete = (newSearch: string):void => {
   //   const buildQuery = buildSearch(search);
   //   return buildQuery;
@@ -13,10 +20,8 @@ export default function useListMovies() {
 
   return {
     search,
-    // onSearchComplete,
-    setSearch,
-    // setSearch: (search: string) =>
-    //   setSearchParams((params) => ({ ...params, search })),
-    // setFilter: (filter: SearchParams) => setSearchParams(filter),
+    onSearchComplete,
+    pagingOptions,
+    setPagingOptions,
   };
 }

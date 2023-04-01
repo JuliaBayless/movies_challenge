@@ -6,7 +6,7 @@ import { Movie } from '../../server/types';
 const buildSearch = (search: any): string => {
   console.log('IN BUILD', search);
   if (search) {
-    return `s=${search}`;
+    return `search=${search}`;
   }
   return '';
 };

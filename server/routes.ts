@@ -26,11 +26,11 @@ app.get('/movie/:title', async (req, res) => {
 // search grabs list using query
 app.get('/movies', async (req, res) => {
   const apiKey = process.env.API_KEY;
-  const { s } = req.query;
-  console.log('PING', s);
-  const response = await axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&s=${s}`);
+  const { search } = req.query;
+  console.log('PING', search);
+  const response = await axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&s=${search}`);
   console.log(response.data);
-  res.json(response.data.Search);
+  res.json(response.data);
 });
 
 const port = process.env.PORT || 3000;
