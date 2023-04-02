@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PagingOptions } from '../../api/types';
+import { MediaType, PagingOptions } from '../../api/types';
 // import { SearchParams } from './types';
 
 export default function useListMovies() {
@@ -8,16 +8,24 @@ export default function useListMovies() {
     page_size: 10,
   });
   const [search, setSearch] = useState<string>('');
+  const [filter, setFilter] = useState<MediaType | undefined>(undefined);
 
   const onSearchComplete = (newSearch: string): void => {
-    setSearch(newSearch.replace(/\s+/g, '_'));
+    setSearch(newSearch.trim().replace(/\s+/g, '_'));
+    setPagingOptions({ page: 1, page_size: 10 });
+  };
+
+  const onFilterComplete = (newFilter: MediaType): void => {
+    setFilter(newFilter);
     setPagingOptions({ page: 1, page_size: 10 });
   };
 
   return {
+    filter,
     search,
     onSearchComplete,
     pagingOptions,
     setPagingOptions,
+    onFilterComplete,
   };
 }

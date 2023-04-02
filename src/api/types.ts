@@ -9,3 +9,16 @@ export type Page = PagingOptions & {
   total_count: number;
   items: Movie[];
 };
+
+export enum MediaType {
+  MOVIE = 'movie',
+  SERIES = 'series',
+  EPISODE = 'episode',
+}
+
+export interface SearchParams {
+  search?: string;
+  year?: string | number;
+  type?: MediaType;
+  page?: number;
+}

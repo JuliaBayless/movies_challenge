@@ -8,7 +8,7 @@ import PagingMenu from './pagination-component/PagingMenu';
 
 export default function ListPage() {
   const {
-    onSearchComplete, search, pagingOptions, setPagingOptions,
+    onSearchComplete, search, pagingOptions, setPagingOptions, onFilterComplete,
   } = useListMovies();
   const { movies, isLoading, error } = searchMoviesQuery(search, pagingOptions);
 
@@ -16,7 +16,7 @@ export default function ListPage() {
 
   return (
     <div>
-      <MovieSearch setSearch={onSearchComplete} />
+      <MovieSearch setSearch={onSearchComplete} setFilter={onFilterComplete} />
       <PagingMenu
         pagingOptions={pagingOptions}
         totalItems={movies && movies.totalResults}

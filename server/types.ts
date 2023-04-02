@@ -24,7 +24,12 @@ export interface SearchResponse {
 
 export interface SearchParams {
   query: string;
-  year?: string | number;
-  type?: string | string[];
+  type?: MediaType;
   page?: number;
+}
+
+export enum MediaType {
+  MOVIE = 'movie',
+  SERIES = 'series',
+  EPISODE = 'episode',
 }
