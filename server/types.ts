@@ -1,4 +1,4 @@
-export interface Movie {
+export interface MovieDetails {
   imdbID: string;
   Title: string,
   Year: string,
@@ -17,8 +17,16 @@ export interface RatingItem {
   Value: string
 }
 
+export interface Movie {
+  Title: string;
+  Year: string;
+  imdbID: string;
+  Type: string;
+  Poster: string;
+}
+
 export interface SearchResponse {
-  Search: Movie[];
+  Search?: Movie[];
   totalResults: number;
   Response: string;
 }

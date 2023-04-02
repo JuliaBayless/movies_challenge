@@ -21,6 +21,7 @@ export default function ListPage() {
         totalItems={movies && movies.totalResults}
         onPageChange={(next: number) => setPagingOptions({ page: next, page_size: 10 })}
       />
+      {/* {isLoading && <p>...Loading</p>} */}
       {movies && movies.Search &&
       <MovieList movies={movies.Search} />}
     </div>

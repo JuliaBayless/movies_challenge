@@ -27,3 +27,22 @@ export interface Movie {
   Type: string;
   Poster: string;
 }
+
+export interface MovieDetails {
+  imdbID: string;
+  Title: string,
+  Year: string,
+  Runtime: string,
+  Ratings: RatingItem[],
+  Poster: string;
+  Genre: string;
+  Actors: string;
+  Plot: string;
+  Awards: string;
+  Type: string;
+}
+
+export interface RatingItem {
+  Source: string,
+  Value: string
+}

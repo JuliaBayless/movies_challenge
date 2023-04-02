@@ -16,10 +16,10 @@ app.get('/', (req, res) => {
 });
 
 // grabs single movie
-app.get('/movie/:title', async (req, res) => {
+app.get('/movie/:id', async (req, res) => {
   const apiKey = process.env.API_KEY;
-  const { title } = req.params;
-  const response = await axios.get(`http://www.omdbapi.com/?t=${title}&apikey=${apiKey}`);
+  const { id } = req.params;
+  const response = await axios.get(`http://www.omdbapi.com/?i=${id}&apikey=${apiKey}`);
   res.json(response.data);
 });
 
