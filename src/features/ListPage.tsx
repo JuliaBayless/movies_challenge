@@ -8,9 +8,9 @@ import PagingMenu from './pagination-component/PagingMenu';
 
 export default function ListPage() {
   const {
-    onSearchComplete, search, pagingOptions, setPagingOptions, onFilterComplete,
+    search, pagingOptions, filter, onSearchComplete, setPagingOptions, onFilterComplete,
   } = useListMovies();
-  const { movies, isLoading, error } = searchMoviesQuery(search, pagingOptions);
+  const { movies, isLoading, error } = searchMoviesQuery(search, pagingOptions, filter);
 
   console.log('Data', movies, isLoading, error, pagingOptions, search);
 

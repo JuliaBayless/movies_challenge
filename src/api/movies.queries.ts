@@ -40,13 +40,17 @@ const searchMoviesQuery = (
   filter?: MediaType,
 ): QueryReturn => {
   const query = buildSearch(search) + buildType(filter) + buildPaging(pagingOptions);
-  console.log(`${process.env.REACT_APP_SERVER_URL}/movies?${query}`);
+  console.log(`${process.env.REACT_APP_SERVER_URL}/movies?${query}`, 'search', search);
   const {
     isLoading, isFetching, error, data,
-  } = useQuery([`/movies&${query}`], async () => {
-    const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/movies?${query}`);
-    console.log('RESULT', res);
-    return res.data;
+  } = useQuery({
+    queryKey: [`/movies&${query}`],
+    keepPreviousData: true,
+    enabled: search !== undefined,
+    queryFn: async () => {
+      const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/movies?${query}`);
+      return res.data;
+    },
   });
   return {
     movies: data,

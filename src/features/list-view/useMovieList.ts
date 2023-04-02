@@ -7,7 +7,7 @@ export default function useListMovies() {
     page: 1,
     page_size: 10,
   });
-  const [search, setSearch] = useState<string>('');
+  const [search, setSearch] = useState<string | undefined>(undefined);
   const [filter, setFilter] = useState<MediaType | undefined>(undefined);
 
   const onSearchComplete = (newSearch: string): void => {
