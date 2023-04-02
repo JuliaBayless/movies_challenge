@@ -7,7 +7,10 @@ import Details from './details-view/MovieDetails';
 export default function DetailsPage() {
   const { id } = useParams<{ id: string }>();
 
-  const { movie } = getMovie(id);
+  const {
+    movie, error, isLoading, isFetching,
+  } = getMovie(id);
+  console.log('Details', id, movie, error, isLoading, isFetching);
   return (
     <div>
       {movie ?

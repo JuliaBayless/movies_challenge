@@ -1,5 +1,5 @@
 import React from 'react';
-import './DetailsPage.css';
+import './MovieDetails.css';
 import { MovieDetails } from '../../api/types';
 
 interface MoveDetailsProps {
