@@ -30,13 +30,30 @@ export default function Card({ movie }: CardProps) {
     >
       <img src={movie.Poster} alt={`${movie.Title} poster`} />
       <div className="card-details">
-        <h3>{movie.Title}</h3>
-        <p>{movie.Year}</p>
-        <p>
-          Type:
-          {' '}
-          {movie.Type}
-        </p>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            width: '300px',
+          }}
+        >
+          <h2
+            className="card-font card-title"
+            style={{
+              flex: 1, flexWrap: 'wrap', lineHeight: 1,
+            }}
+          >
+            {movie.Title}
+          </h2>
+          <p className="card-font">
+            {movie.Type.charAt(0).toUpperCase() + movie.Type.slice(1)}
+            {' '}
+            released in
+            {' '}
+            {movie.Year}
+          </p>
+        </div>
       </div>
     </div>
   );
