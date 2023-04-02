@@ -9,6 +9,7 @@ export interface Movie {
   Actors: string;
   Plot: string;
   Awards: string;
+  Type: string;
 }
 
 export interface RatingItem {
@@ -23,7 +24,7 @@ export interface SearchResponse {
 }
 
 export interface SearchParams {
-  search: string;
+  search?: string;
   type?: MediaType;
   page?: number;
 }

@@ -1,5 +1,3 @@
-import { Movie } from '../../server/types';
-
 export type PagingOptions = {
   page: number;
   page_size: number;
@@ -20,4 +18,12 @@ export interface SearchParams {
   search?: string;
   type?: MediaType;
   page?: number;
+}
+
+export interface Movie {
+  Title: string;
+  Year: string;
+  imdbID: string;
+  Type: string;
+  Poster: string;
 }

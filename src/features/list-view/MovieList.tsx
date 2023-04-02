@@ -1,6 +1,18 @@
-// import React from 'react';
+/* eslint-disable react/destructuring-assignment */
+import React from 'react';
+import { Movie } from '../../api/types';
+import Card from '../../components/Card';
 // import { useNavigate } from 'react-router';
+interface MovieListProps {
+  movies: Movie[];
+}
 
-export default function ListMovies() {
-//   const navigate = useNavigate();
+export default function MovieList({ movies }: MovieListProps) {
+  return (
+    <div className="movie-list">
+      {movies.map((movie) => (
+        <Card key={movie.imdbID} movie={movie} />
+      ))}
+    </div>
+  );
 }
