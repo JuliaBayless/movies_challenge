@@ -2,11 +2,11 @@ import React from 'react';
 // import useListMovies from '../list-view/useMovieList';
 import SearchBar from '../../components/Searchbar';
 import { MediaType } from '../../api/types';
-import FilterByType from './FilterByType';
+import FilterDropDown from './FilterDropDown';
 
 interface SearchBarProps {
   setSearch: (query: string) => void;
-  setFilter: (filter: MediaType) => void;
+  setFilter: (filter: MediaType | undefined) => void;
 }
 
 export default function MovieSearch({ setSearch, setFilter }: SearchBarProps) {
@@ -14,7 +14,7 @@ export default function MovieSearch({ setSearch, setFilter }: SearchBarProps) {
 
     <div style={{ display: 'flex' }}>
       <SearchBar setSearch={setSearch} style={{ marginRight: '8px' }} />
-      <FilterByType setFilter={setFilter} />
+      <FilterDropDown setFilter={setFilter} />
     </div>
 
   );

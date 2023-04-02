@@ -18,7 +18,6 @@ export enum MediaType {
 
 export interface SearchParams {
   search?: string;
-  year?: string | number;
   type?: MediaType;
   page?: number;
 }

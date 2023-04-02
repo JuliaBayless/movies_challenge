@@ -10,7 +10,7 @@ export default function ListPage() {
   const {
     search, pagingOptions, filter, onSearchComplete, setPagingOptions, onFilterComplete,
   } = useListMovies();
-  const { movies, isLoading, error } = searchMoviesQuery(search, pagingOptions, filter);
+  const { movies, isLoading, error } = searchMoviesQuery(search, filter, pagingOptions);
 
   console.log('Data', movies, isLoading, error, pagingOptions, search);
 

@@ -15,7 +15,7 @@ export default function useListMovies() {
     setPagingOptions({ page: 1, page_size: 10 });
   };
 
-  const onFilterComplete = (newFilter: MediaType): void => {
+  const onFilterComplete = (newFilter: MediaType | undefined): void => {
     setFilter(newFilter);
     setPagingOptions({ page: 1, page_size: 10 });
   };

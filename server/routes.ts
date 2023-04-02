@@ -26,11 +26,23 @@ app.get('/movie/:title', async (req, res) => {
 // search grabs list using query
 app.get('/movies', async (req, res) => {
   const apiKey = process.env.API_KEY;
-  const { search, page } = req.query;
-  console.log('PING', search);
-  const response = await axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&s=${search}&page=${page}`);
-  console.log(response.data);
-  res.json(response.data);
+  const { search = '', page = 1, type } = req.query;
+
+  // Build the query string
+  let queryString = `http://www.omdbapi.com/?apikey=${apiKey}&s=${search}&page=${page}`;
+
+  // Add the 'type' parameter
+  if (type) {
+    queryString += `&type=${type}`;
+  }
+
+  try {
+    const response = await axios.get(queryString);
+    res.json(response.data);
+  } catch (error) {
+    console.error(`Error fetching data from OMDB API: ${error}`);
+    res.status(500).json({ error: 'Error fetching data from OMDB API' });
+  }
 });
 
 const port = process.env.PORT || 3000;

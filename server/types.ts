@@ -23,7 +23,7 @@ export interface SearchResponse {
 }
 
 export interface SearchParams {
-  query: string;
+  search: string;
   type?: MediaType;
   page?: number;
 }
