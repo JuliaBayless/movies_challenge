@@ -1,5 +1,5 @@
 import React from 'react';
-// import useListMovies from '../list-view/useMovieList';
+
 import SearchBar from '../../components/Searchbar';
 import { MediaType } from '../../api/types';
 import FilterDropDown from './FilterDropDown';

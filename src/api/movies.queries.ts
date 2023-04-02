@@ -35,6 +35,7 @@ const searchMoviesQuery = (
     isLoading, isFetching, error, data,
   } = useQuery({
     queryKey: [`/movies&${query}`],
+    refetchOnWindowFocus: false,
     keepPreviousData: true,
     enabled: search !== undefined,
     queryFn: async () => {

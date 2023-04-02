@@ -2,7 +2,8 @@
 import React from 'react';
 import { Movie } from '../../api/types';
 import Card from '../../components/Card';
-// import { useNavigate } from 'react-router';
+import './MovieList.css';
+
 interface MovieListProps {
   movies: Movie[];
 }

@@ -1,4 +1,6 @@
 import React from 'react';
+import Header from './Header';
+import './BasePage.css';
 
 interface PageProps {
   children: React.ReactNode;
@@ -6,10 +8,9 @@ interface PageProps {
 
 export default function BasePage({ children }:PageProps) {
   return (
-    <div>
-      {' '}
-      {/* page style here header w back button toggle here */}
-      <div>
+    <div className="container">
+      <Header title="Movies!" />
+      <div className="content">
         {/* //components here */}
         {children}
       </div>

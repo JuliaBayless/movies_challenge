@@ -1,10 +1,9 @@
-movie-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
-    padding: 16px;
-  }
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
   
   @media (max-width: 600px) {
     .movie-list {
