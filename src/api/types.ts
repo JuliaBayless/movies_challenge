@@ -8,6 +8,12 @@ export type Page = PagingOptions & {
   items: Movie[];
 };
 
+export interface SearchResponse {
+  Search?: Movie[];
+  totalResults: number;
+  Response: string;
+}
+
 export enum MediaType {
   MOVIE = 'movie',
   SERIES = 'series',

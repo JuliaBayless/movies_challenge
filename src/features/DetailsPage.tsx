@@ -9,6 +9,11 @@ export default function DetailsPage() {
 
   const { movie } = getMovie(id);
   return (
-    <Details movie={movie} />
+    <div>
+      {movie ?
+        <Details movieDetails={movie} />
+        :
+        <h2>No Movie Found, please try again</h2>}
+    </div>
   );
 }

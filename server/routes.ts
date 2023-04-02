@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import axios from 'axios';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import { MovieDetails, SearchResponse } from './types';
 
 dotenv.config();
 const app = express();
@@ -19,7 +20,7 @@ app.get('/', (req, res) => {
 app.get('/movie/:id', async (req, res) => {
   const apiKey = process.env.API_KEY;
   const { id } = req.params;
-  const response = await axios.get(`http://www.omdbapi.com/?i=${id}&apikey=${apiKey}`);
+  const response = await axios.get<MovieDetails>(`http://www.omdbapi.com/?i=${id}&apikey=${apiKey}`);
   res.json(response.data);
 });
 
@@ -37,7 +38,7 @@ app.get('/movies', async (req, res) => {
   }
 
   try {
-    const response = await axios.get(queryString);
+    const response = await axios.get<SearchResponse>(queryString);
     res.json(response.data);
   } catch (error) {
     console.error(`Error fetching data from OMDB API: ${error}`);

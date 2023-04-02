@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
-import { SearchResponse, MediaType } from '../../server/types';
-import { MovieDetails, PagingOptions, SearchParams } from './types';
+import {
+  MovieDetails, PagingOptions, SearchParams, SearchResponse, MediaType,
+} from './types';
 
 const buildSearch = ({ search, type, page }: SearchParams): string => {
   let url: string = '';
@@ -50,7 +51,7 @@ const searchMoviesQuery = (
 };
 
 interface GetMovieReturn {
-  movie: MovieDetails,
+  movie: MovieDetails | undefined,
   isLoading: boolean,
   isFetching: boolean,
   error: unknown

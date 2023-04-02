@@ -2,12 +2,16 @@ import React from 'react';
 import './DetailsPage.css';
 import { MovieDetails } from '../../api/types';
 
-export default function Details(movie: MovieDetails) {
+interface MoveDetailsProps {
+  movieDetails: MovieDetails,
+}
+
+export default function Details({ movieDetails }: MoveDetailsProps) {
   const {
     Title, Year, Runtime, Genre, Actors, Plot, Awards, Poster, Ratings,
-  } = movie;
+  } = movieDetails;
 
-  if (!movie) {
+  if (!movieDetails) {
     return <div>No movie data found</div>;
   }
 
