@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "es2022",
+    "lib": [
+        "ESNext"
+      ],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "./dist/backend",
+    "checkJs": false,
+    "strict": false,
+    "noImplicitAny": false,
+    "emitDecoratorMetadata": true,
+    "allowImportingTsExtensions": true
+  },
+  "include": ["server/**/*"]
+}

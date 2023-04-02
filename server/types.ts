@@ -1,3 +1,5 @@
+import { ParsedQs } from 'qs';
+
 export interface Movie {
   imdbID: string;
   Title: string,
@@ -22,10 +24,10 @@ export interface SearchResponse {
   Response: string;
 }
 
-export interface SearchParams {
+export interface SearchParams extends ParsedQs {
   search: string;
   type?: MediaType;
-  page?: number;
+  page?: string;
 }
 
 export enum MediaType {
