@@ -10,6 +10,6 @@ export default function PagingText({ currentStart, currentEnd, total }: PagingTe
   const count = `Showing ${currentStart}-${currentEnd} of ${total} items`;
 
   return (
-    <p>{count}</p>
+    <p className="paging-text">{count}</p>
   );
 }

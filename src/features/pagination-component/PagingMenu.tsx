@@ -38,7 +38,7 @@ export default function PaginationMenu({
 
   return (
     <div>
-      <div className="Menu-Container">
+      <div className="menu-container">
         <PagingText
           currentStart={currentStart}
           currentEnd={currentEnd}

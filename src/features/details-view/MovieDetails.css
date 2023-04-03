@@ -2,16 +2,42 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 100%;
+    max-width: 80%;
     padding: 0 16px;
     box-sizing: border-box;
     margin: 0 auto;
+    border: 2px solid black;
+    border-radius: 4px;
+    margin-top: 80px;
+    padding-bottom: 20px;
   }
   
-  @media (min-width: 768px) {
+  @media (max-width: 600px) {
     .details-container {
-      flex-direction: row;
+      flex-direction: column;
+      max-width: 100%;
     }
+  }
+
+  .details-info-container {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 600px) {
+    .details-info-container {
+      flex-direction: column;
+      max-width: 90%;
+      align-items:flex-start;
+    }
+  }
+
+  .details-info-row {
+    display: flex;
+    flex-direction: row;
   }
   
   .movie-info {
@@ -28,11 +54,35 @@
   
   .ratings {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    margin-top: 16px;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  @media (max-width: 600px) {
+    .ratings {
+      flex-direction: column;
+      max-width: 90%;
+      align-items: center;
+    }
   }
   
   .rating {
-    margin-bottom: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .details-ff {
+    font-family: "Poppins";
+    font-weight: 900;
+  }
+
+  .details-fwb {
+    font-weight: 900;
+    color:rgb(68, 10, 116)
+  }
+
+  .details-fwL {
+    font-weight: 100;
   }

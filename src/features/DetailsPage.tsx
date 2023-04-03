@@ -2,21 +2,32 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovie } from '../api/movies.queries';
 import Details from './details-view/MovieDetails';
-// import { MovieDetails } from '../api/types';
 
 export default function DetailsPage() {
   const { id } = useParams<{ id: string }>();
 
   const {
-    movie, error, isLoading, isFetching,
+    movie, isError, isLoading,
   } = getMovie(id);
-  console.log('Details', id, movie, error, isLoading, isFetching);
+
+  if (isLoading) {
+    return <span className="error-message">Loading...</span>;
+  }
+
+  if (isError) {
+    return (
+      <span className="error-message">
+        Error: Please try again later
+      </span>
+    );
+  }
+
   return (
     <div>
-      {movie ?
+      {movie.Title ?
         <Details movieDetails={movie} />
         :
-        <h2>No Movie Found, please try again</h2>}
+        <h2 className="error-message">No Movie Found, Please Try Again</h2>}
     </div>
   );
 }

@@ -22,7 +22,7 @@ interface SearchMoviesReturn {
   movies: SearchResponse,
   isLoading: boolean,
   isFetching: boolean,
-  error: any
+  error: unknown,
 }
 const searchMoviesQuery = (
   search?: string,
@@ -30,7 +30,6 @@ const searchMoviesQuery = (
   pagingOptions?: PagingOptions,
 ): SearchMoviesReturn => {
   const query = buildSearch({ search, type: filter, page: pagingOptions?.page });
-  console.log(`${process.env.REACT_APP_SERVER_URL}/movies?${query}`);
   const {
     isLoading, isFetching, error, data,
   } = useQuery({
@@ -52,20 +51,21 @@ const searchMoviesQuery = (
 };
 
 interface GetMovieReturn {
-  movie: MovieDetails | undefined,
+  movie: MovieDetails,
   isLoading: boolean,
   isFetching: boolean,
-  error: unknown
+  isError: boolean,
+  error: unknown,
 }
 const getMovie = (imdbID: string | undefined): GetMovieReturn => {
   const {
-    isLoading, isFetching, error, data,
+    isLoading, isFetching, isError, data, error,
   } = useQuery({
     refetchOnWindowFocus: false,
     enabled: imdbID !== undefined,
     queryKey: ['GET /movie', imdbID],
     queryFn: async () => {
-      const response = await axios.get<MovieDetails>(`${process.env.REACT_APP_SERVER_URL}/movie/${imdbID}`);
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/movie/${imdbID}`);
       return response.data;
     },
   });
@@ -73,6 +73,7 @@ const getMovie = (imdbID: string | undefined): GetMovieReturn => {
     movie: data,
     isLoading,
     isFetching,
+    isError,
     error,
   };
 };
