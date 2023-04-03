@@ -1,28 +1,43 @@
 import React from 'react';
-// import { useQuery } from '@tanstack/react-query';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import MovieSearch from './search-component/MovieSearch';
-// import { searchMovies } from '../api/movies.queries';
 import useListMovies from './list-view/useMovieList';
 import { searchMoviesQuery } from '../api/movies.queries';
 import PagingMenu from './pagination-component/PagingMenu';
+import MovieList from './list-view/MovieList';
+import './ListPage.css';
 
 export default function ListPage() {
   const {
     search, pagingOptions, filter, onSearchComplete, setPagingOptions, onFilterComplete,
   } = useListMovies();
-  const { movies, isLoading, error } = searchMoviesQuery(search, filter, pagingOptions);
-
-  console.log('Data', movies, isLoading, error, pagingOptions, search);
+  const { movies } = searchMoviesQuery(search, filter, pagingOptions);
 
   return (
-    <div>
-      <MovieSearch setSearch={onSearchComplete} setFilter={onFilterComplete} />
-      <PagingMenu
-        pagingOptions={pagingOptions}
-        totalItems={movies && movies.totalResults}
-        onPageChange={(next: number) => setPagingOptions({ page: next, page_size: 10 })}
-      />
-      {JSON.stringify(movies)}
+    <div className="listPage-container">
+      <div className="listPage-content">
+        <div className="search-paging-container">
+          <MovieSearch setSearch={onSearchComplete} setFilter={onFilterComplete} />
+          {movies && movies.Search && (
+          <>
+            <PagingMenu
+              pagingOptions={pagingOptions}
+              totalItems={movies && movies.totalResults}
+              onPageChange={(next: number) => setPagingOptions({ page: next, page_size: 10 })}
+            />
+            <div className="movie-list-container">
+              <MovieList movies={movies.Search} />
+            </div>
+          </>
+          )}
+          {!movies && (
+          <div className="arrow-icon">
+            <ArrowUpwardIcon />
+            <p className="welcome-text bounce">Choose your adventure</p>
+          </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
-import { Movie, SearchResponse, MediaType } from '../../server/types';
-import { PagingOptions, SearchParams } from './types';
+import {
+  MovieDetails, PagingOptions, SearchParams, SearchResponse, MediaType,
+} from './types';
 
 const buildSearch = ({ search, type, page }: SearchParams): string => {
   let url: string = '';
@@ -17,27 +18,27 @@ const buildSearch = ({ search, type, page }: SearchParams): string => {
   return url;
 };
 
-interface QueryReturn {
+interface SearchMoviesReturn {
   movies: SearchResponse,
   isLoading: boolean,
   isFetching: boolean,
-  error: any
+  error: unknown,
 }
 const searchMoviesQuery = (
   search?: string,
   filter?: MediaType,
   pagingOptions?: PagingOptions,
-): QueryReturn => {
+): SearchMoviesReturn => {
   const query = buildSearch({ search, type: filter, page: pagingOptions?.page });
-  console.log(`${process.env.REACT_APP_SERVER_URL}/movies?${query}`);
   const {
     isLoading, isFetching, error, data,
   } = useQuery({
     queryKey: [`/movies&${query}`],
+    refetchOnWindowFocus: false,
     keepPreviousData: true,
     enabled: search !== undefined,
     queryFn: async () => {
-      const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/movies?${query}`);
+      const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/movies?${query}`);
       return res.data;
     },
   });
@@ -49,13 +50,32 @@ const searchMoviesQuery = (
   };
 };
 
-const getMovie = (title: string) => ({
-  refetchOnWindowFocus: false,
-  queryKey: ['GET /movie'],
-  queryFn: async () => {
-    const response = await axios.get<{ Search: Movie }>(`${process.env.REACT_APP_SERVER_URL}/movie/${title}`);
-    return response.data;
-  },
-});
+interface GetMovieReturn {
+  movie: MovieDetails,
+  isLoading: boolean,
+  isFetching: boolean,
+  isError: boolean,
+  error: unknown,
+}
+const getMovie = (imdbID: string | undefined): GetMovieReturn => {
+  const {
+    isLoading, isFetching, isError, data, error,
+  } = useQuery({
+    refetchOnWindowFocus: false,
+    enabled: imdbID !== undefined,
+    queryKey: ['GET /movie', imdbID],
+    queryFn: async () => {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/movies/${imdbID}`);
+      return response.data;
+    },
+  });
+  return {
+    movie: data,
+    isLoading,
+    isFetching,
+    isError,
+    error,
+  };
+};
 
 export { searchMoviesQuery, getMovie };

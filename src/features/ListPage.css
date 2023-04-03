@@ -1,0 +1,59 @@
+.listPage-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  .listPage-content {
+    flex: 1;
+    padding: 20px;
+    flex-direction: column;
+  }
+  
+  .search-paging-container {
+    width: 100%;
+    padding-top: 2.5em;
+  }
+
+  .movie-list-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-grow: 1; 
+    margin-top: 30px; 
+  }
+  
+  .error-message {
+    font-family: 'Poppins';
+    margin-top: 100px;
+  }
+
+  .arrow-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    font-size: 20px;
+  }
+  
+  .welcome-text {
+    font-family: 'Poppins';
+  }
+
+  .bounce {
+    animation: bounce 2s infinite;
+  }
+  
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }

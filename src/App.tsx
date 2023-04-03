@@ -1,23 +1,29 @@
 import React from 'react';
 import '@fontsource/poppins';
-import './App.css';
 import { Routes, Route } from 'react-router';
 import ListPage from './features/ListPage';
+import DetailsPage from './features/DetailsPage';
+import BasePage from './components/BasePage';
 
 export default function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route
-          path="/"
-          element={(
+    <Routes>
+      <Route
+        path="/"
+        element={(
+          <BasePage>
             <ListPage />
+          </BasePage>
           )}
-        />
-        <Route
-          path="/movie/:id"
-        />
-      </Routes>
-    </div>
+      />
+      <Route
+        path="/movie/:id"
+        element={(
+          <BasePage backBtn>
+            <DetailsPage />
+          </BasePage>
+          )}
+      />
+    </Routes>
   );
 }

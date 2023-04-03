@@ -1,18 +1,23 @@
 import React from 'react';
+import Header from './Header';
+import './BasePage.css';
 
 interface PageProps {
   children: React.ReactNode;
+  backBtn?: boolean;
 }
 
-export default function BasePage({ children }:PageProps) {
+export default function BasePage({ children, backBtn }:PageProps) {
   return (
-    <div>
-      {' '}
-      {/* page style here header w back button toggle here */}
-      <div>
-        {/* //components here */}
+    <div className="container">
+      <Header title="Movies!" backBtn={backBtn} />
+      <div className="content">
         {children}
       </div>
     </div>
   );
 }
+
+BasePage.defaultProps = {
+  backBtn: false,
+};

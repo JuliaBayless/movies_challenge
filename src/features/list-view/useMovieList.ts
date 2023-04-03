@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { MediaType, PagingOptions } from '../../api/types';
-// import { SearchParams } from './types';
 
 export default function useListMovies() {
   const [pagingOptions, setPagingOptions] = useState<PagingOptions>({

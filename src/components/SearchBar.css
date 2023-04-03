@@ -1,16 +1,19 @@
 .search-container {
     display: flex;
     align-items: center;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid #020202;
     border-radius: 4px;
     padding: 4px;
+    width: 60vw;
   }
   
   .search-container input {
     border: none;
     flex: 1;
     padding: 4px;
+    outline: none;
+    font-family: "poppins";
+    font-size: 16px;
   }
   
   .search-container button {
@@ -18,4 +21,9 @@
     border: none;
     cursor: pointer;
     margin-left: 4px;
+  }
+
+  .search-container:focus {
+      outline: none;
+      border-color: none;
   }

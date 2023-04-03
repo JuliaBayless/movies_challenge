@@ -14,10 +14,10 @@ export default function PagingArrows({
 }: PageArrowsProps) {
   return (
     <div>
-      <button type="button" onClick={handlePreviousClick} disabled={currentPage === 1}>
+      <button type="button" className="paging-button" onClick={handlePreviousClick} disabled={currentPage === 1}>
         <NavigateBeforeIcon />
       </button>
-      <button type="button" onClick={handleNextClick} disabled={currentPage === totalPages}>
+      <button type="button" className="paging-button" onClick={handleNextClick} disabled={currentPage === totalPages}>
         <NavigateNextIcon />
       </button>
     </div>

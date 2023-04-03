@@ -1,5 +1,40 @@
-Menu-Container {
-    display: flex;
-    justify-content: "space-between";
-    align-items: "center";
+.menu-container {
+display: flex;
+align-content: flex-start;
+flex-direction: column;
+margin-left: 5vh;
+}
+
+@media (max-width: 600px) {
+    .menu-container{
+        margin-left: 0;
+    }
+}
+
+.paging-text {
+    font-family: "Poppins";
+}
+
+.paging-button {
+    border: 1px solid black;
+    border-right: 1px solid white;
+    border-radius: 3px;
+    background-color: black;
+    color: white;
+}
+
+.paging-button:hover {
+    transform: translate(-1px, -1px);
+    background-color: rgb(85, 27, 133);
+    border-color: black;
+    box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 1);
+    color: white;  
+}
+
+.paging-button:active {
+    transform: translate(-0px, -0px);
+    background-color: rgb(85, 27, 133);
+    border-color: black;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 1);
+    color: white;
 }

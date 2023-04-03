@@ -1,5 +1,4 @@
 import React from 'react';
-// import useListMovies from '../list-view/useMovieList';
 import SearchBar from '../../components/Searchbar';
 import { MediaType } from '../../api/types';
 import FilterDropDown from './FilterDropDown';
@@ -12,7 +11,7 @@ interface SearchBarProps {
 export default function MovieSearch({ setSearch, setFilter }: SearchBarProps) {
   return (
 
-    <div style={{ display: 'flex' }}>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
       <SearchBar setSearch={setSearch} style={{ marginRight: '8px' }} />
       <FilterDropDown setFilter={setFilter} />
     </div>

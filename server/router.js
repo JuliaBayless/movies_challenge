@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import axios from 'axios';
-// eslint-disable-next-line import/extensions
 import { fetchMovies } from './service.js';
 
 const router = Router();
@@ -8,9 +7,11 @@ const router = Router();
 // search movies in OMDb
 router.get('/', async (req, res) => {
   try {
+    console.log('IN', req.query)
     const data = await fetchMovies(req.query);
     res.json(data);
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(`Error fetching data from OMDB API: ${error}`);
     res.status(500).json({ error: 'Error fetching data from OMDB API' });
   }

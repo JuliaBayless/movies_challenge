@@ -21,7 +21,11 @@ export default function FilterDropDown({ setFilter }: FilterByTypeProps) {
 
   return (
     <div className="dropdown">
-      <button type="button" className="dropdown-button" onClick={toggleDropdown}>
+      <button
+        type="button"
+        className={`filter-button ${isOpen ? 'active' : ''}`}
+        onClick={toggleDropdown}
+      >
         Filter
       </button>
       {isOpen && (

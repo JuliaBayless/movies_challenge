@@ -2,7 +2,6 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cors from 'cors';
-// eslint-disable-next-line import/extensions
 import movieRouter from './router.js';
 
 dotenv.config();
@@ -19,5 +18,6 @@ app.use('/api/movies', movieRouter);
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
+  // eslint-disable-next-line no-console
   console.log(`Server is running on port ${port}`);
 });
