@@ -52,3 +52,8 @@ export interface RatingItem {
   Source: string,
   Value: string
 }
+
+export interface ReactQueryError {
+  Response: boolean,
+  Error: string,
+}

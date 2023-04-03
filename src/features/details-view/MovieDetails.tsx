@@ -15,7 +15,7 @@ export default function Details({ movieDetails }: MoveDetailsProps) {
   if (!movieDetails) {
     return <div>No movie data found</div>;
   }
-  console.log(Runtime, Genre);
+
   return (
     <div className="details-container">
       <div className="movie-info">

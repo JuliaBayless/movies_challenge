@@ -18,7 +18,7 @@ export default function SearchBar({ setSearch, style }: SearchBarProps) {
     <div className="search-container" style={style}>
       <input
         type="text"
-        placeholder="Search Your Media Title Here"
+        placeholder="Media Title Here"
         value={value}
         onChange={(e) => setValue(e.target.value)}
         onKeyDown={(e) => keyPress(e.key)}

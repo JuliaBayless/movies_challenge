@@ -12,7 +12,6 @@ export default function BasePage({ children, backBtn }:PageProps) {
     <div className="container">
       <Header title="Movies!" backBtn={backBtn} />
       <div className="content">
-        {/* //components here */}
         {children}
       </div>
     </div>
