@@ -1,5 +1,6 @@
 import React from 'react';
 import './MovieDetails.css';
+import { v4 as uuidv4 } from 'uuid';
 import { MovieDetails } from '../../api/types';
 
 interface MoveDetailsProps {
@@ -14,49 +15,39 @@ export default function Details({ movieDetails }: MoveDetailsProps) {
   if (!movieDetails) {
     return <div>No movie data found</div>;
   }
-
+  console.log(Runtime, Genre);
   return (
     <div className="details-container">
       <div className="movie-info">
-        <h1>
+        <h1 className="details-ff">
           {Title}
           {' '}
           (
           {Year}
           )
         </h1>
-        <p>
-          Runtime:
-          {' '}
-          {Runtime}
-        </p>
-        <p>
-          Genre:
-          {' '}
-          {Genre}
-        </p>
-        <p>
-          Actors:
-          {' '}
-          {Actors}
-        </p>
-        <p>
-          Plot:
-          {' '}
-          {Plot}
-        </p>
-        <p>
-          Awards:
-          {' '}
-          {Awards}
-        </p>
+        <img className="movie-poster" src={Poster} alt={`${Title} poster`} />
+        <div className="details-info-container">
+          {[{ Runtime }, { Genre }, { Actors }, { Plot }, { Awards }].map((value) => (
+            <div className="details-info-row" key={uuidv4()}>
+              <h3 className="details-ff details-fwb">
+                {Object.keys(value)}
+                :
+              </h3>
+              <div style={{ paddingTop: '6px' }}>
+                <p className="details-ff details-fwl" style={{ paddingLeft: '10px' }}>
+                  {Object.values(value)}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-      <img className="movie-poster" src={Poster} alt={`${Title} poster`} />
+      <h3 className="details-ff details-fwb">Ratings</h3>
       <div className="ratings">
-        <h2>Ratings</h2>
         {Ratings.map((rating) => (
           <div key={rating.Source} className="rating">
-            <p>
+            <p className="details-ff" style={{ lineHeight: '10px' }}>
               {rating.Source}
               :
               {' '}
