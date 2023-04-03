@@ -1,14 +1,14 @@
 import { Router } from 'express';
 import axios from 'axios';
+// eslint-disable-next-line import/extensions
 import { fetchMovies } from './service.js';
-import { SearchParams } from './types.js';
 
 const router = Router();
 
 // search movies in OMDb
 router.get('/', async (req, res) => {
   try {
-    const data = await fetchMovies(req.query as SearchParams);
+    const data = await fetchMovies(req.query);
     res.json(data);
   } catch (error) {
     console.error(`Error fetching data from OMDB API: ${error}`);
@@ -17,10 +17,10 @@ router.get('/', async (req, res) => {
 });
 
 // grabs single movie
-router.get('/movie/:title', async (req, res) => {
+router.get('/:id', async (req, res) => {
   const apiKey = process.env.API_KEY;
-  const { title } = req.params;
-  const response = await axios.get(`http://www.omdbapi.com/?t=${title}&apikey=${apiKey}`);
+  const { id } = req.params;
+  const response = await axios.get(`http://www.omdbapi.com/?i=${id}&apikey=${apiKey}`);
   res.json(response.data);
 });
 

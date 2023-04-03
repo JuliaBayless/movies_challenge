@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cors from 'cors';
+// eslint-disable-next-line import/extensions
 import movieRouter from './router.js';
 
 dotenv.config();
@@ -13,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 // Use the movie router for the /movies endpoint
-app.use('/movies', movieRouter);
+app.use('/api/movies', movieRouter);
 
 const port = process.env.PORT || 3000;
 

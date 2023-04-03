@@ -1,7 +1,6 @@
 import axios from 'axios';
-import { SearchParams } from './types.js';
 
-export async function fetchMovies(query: SearchParams) {
+export async function fetchMovies(query) {
   const apiKey = process.env.API_KEY;
   const { search = '', page = '1', type } = query;
 
