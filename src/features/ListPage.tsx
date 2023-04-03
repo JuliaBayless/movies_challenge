@@ -13,9 +13,6 @@ export default function ListPage() {
     search, pagingOptions, filter, onSearchComplete, setPagingOptions, onFilterComplete,
   } = useListMovies();
   const { movies } = searchMoviesQuery(search, filter, pagingOptions);
-  // eslint-disable-next-line no-console
-  console.log(movies)
-
 
   function renderErrors(movies: SearchResponse) {
     if (movies?.Error) {
