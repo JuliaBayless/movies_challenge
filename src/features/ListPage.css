@@ -1,6 +1,7 @@
 .listPage-container {
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
   }
   
   .listPage-content {
@@ -20,7 +21,7 @@
     justify-content: center;
     width: 100%;
     flex-grow: 1; /* use flex-grow to take up remaining vertical space */
-    margin-top: 20px; /* add a margin to create some space between the search bar and movie list */
+    margin-top: 30px; 
   }
   
   
