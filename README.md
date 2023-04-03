@@ -51,7 +51,7 @@ Movie! app is where you can grab information about your favorite movies and find
   REACT_APP_SERVER_URL=http://localhost:3000
   API_KEY={yourAPIKeyHere}
 
-4.  Split the terminal and run 'npm run server' in terminal A and 'npm start' in terminal B. You can find the app at whatever localhost your npm start terminal is running on. Example -> Local:http://localhost:3002.
+4.  Split the terminal and run 'npm start' in terminal A and 'npm run client' in terminal B. You can find the app at whatever localhost your npm start terminal is running on. Example -> Local:http://localhost:3002.
 
 5. Have fun playing around!
 
