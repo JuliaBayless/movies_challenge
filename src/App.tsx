@@ -7,21 +7,23 @@ import BasePage from './components/BasePage';
 
 export default function App() {
   return (
-    <BasePage>
-      <Routes>
-        <Route
-          path="/"
-          element={(
+    <Routes>
+      <Route
+        path="/"
+        element={(
+          <BasePage>
             <ListPage />
+          </BasePage>
           )}
-        />
-        <Route
-          path="/movie/:id"
-          element={(
+      />
+      <Route
+        path="/movie/:id"
+        element={(
+          <BasePage backBtn>
             <DetailsPage />
+          </BasePage>
           )}
-        />
-      </Routes>
-    </BasePage>
+      />
+    </Routes>
   );
 }

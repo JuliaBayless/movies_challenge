@@ -4,12 +4,13 @@ import './BasePage.css';
 
 interface PageProps {
   children: React.ReactNode;
+  backBtn?: boolean;
 }
 
-export default function BasePage({ children }:PageProps) {
+export default function BasePage({ children, backBtn }:PageProps) {
   return (
     <div className="container">
-      <Header title="Movies!" />
+      <Header title="Movies!" backBtn={backBtn} />
       <div className="content">
         {/* //components here */}
         {children}
@@ -17,3 +18,7 @@ export default function BasePage({ children }:PageProps) {
     </div>
   );
 }
+
+BasePage.defaultProps = {
+  backBtn: false,
+};

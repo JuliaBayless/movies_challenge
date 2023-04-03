@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import FastRewindIcon from '@mui/icons-material/FastRewind';
 import './Header.css';
 
 interface HeaderProps {
   title: string;
+  backBtn?: boolean;
 }
 
-export default function Header({ title }: HeaderProps) {
+export default function Header({ title, backBtn }: HeaderProps) {
   const [prevScrollPos, setPrevScrollPos] = useState<number>(0);
   const [visible, setVisible] = useState<boolean>(true);
 
@@ -29,7 +31,18 @@ export default function Header({ title }: HeaderProps) {
     <div className={`header-container ${visible ? '' : 'hide'}`}>
       <div className="header-row">
         <h1 className="title">{title}</h1>
+        {backBtn && (
+          <div className="header-btn-container">
+            <button type="button">
+              <FastRewindIcon />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
 }
+
+Header.defaultProps = {
+  backBtn: false,
+};
