@@ -44,14 +44,14 @@ Movie! app is where you can grab information about your favorite movies and find
 
 2. Run 'npm install' as a terminal command.
 
-3. In a separate tab, navigate to OMDb and follow the instructions to sign up for an API KEY - [https://www.omdbapi.com/]
+3. In a separate tab, navigate to OMDb and follow the instructions to sign up for an API KEY - [https://www.omdbapi.com/] (https://www.omdbapi.com/)
 
 3. After you have your key, navigate back to your repo and create a `.env` file at the root of the project. Paste this line into the file replacing {yourAPIKeyHere} with the API KEY you received from OMDb:
   PORT=3000
   REACT_APP_SERVER_URL=http://localhost:3000
   API_KEY={yourAPIKeyHere}
 
-4.  Split the terminal and run 'npm run server' in terminal A and 'npm start' in terminal B. You can find the app at http://localhost:3000/.
+4.  Split the terminal and run 'npm run server' in terminal A and 'npm start' in terminal B. You can find the app at whatever localhost your npm start terminal is running on. Example -> Local:http://localhost:3002.
 
 5. Have fun playing around!
 
