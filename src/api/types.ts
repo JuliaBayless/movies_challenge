@@ -12,6 +12,7 @@ export interface SearchResponse {
   Search?: Movie[];
   totalResults: number;
   Response: string;
+  Error?: string;
 }
 
 export enum MediaType {
