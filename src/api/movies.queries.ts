@@ -38,7 +38,7 @@ const searchMoviesQuery = (
     keepPreviousData: true,
     enabled: search !== undefined,
     queryFn: async () => {
-      const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/movies?${query}`);
+      const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/movies?${query}`);
       return res.data;
     },
   });
@@ -65,7 +65,7 @@ const getMovie = (imdbID: string | undefined): GetMovieReturn => {
     enabled: imdbID !== undefined,
     queryKey: ['GET /movie', imdbID],
     queryFn: async () => {
-      const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/movie/${imdbID}`);
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/movies/${imdbID}`);
       return response.data;
     },
   });

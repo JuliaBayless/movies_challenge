@@ -75,7 +75,7 @@ const eslint = {
   overrides: [
     {
       /** Javascript Overrides */
-      extends: ['plugin:react/recommended', 'airbnb'],
+      extends: ['plugin:react/recommended'],
       files: [JS_FILES],
       rules: {
         ...globalRuleOverrides,
@@ -83,7 +83,7 @@ const eslint = {
     },
     {
       /** Typescript Overrides */
-      extends: ['plugin:react/recommended', 'airbnb', 'airbnb-typescript'],
+      extends: ['plugin:react/recommended'],
       parserOptions: {
         project: './tsconfig.json',
       },
